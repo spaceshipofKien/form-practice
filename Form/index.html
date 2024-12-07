@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapped">
+        <header class="header">
+            <div class="header__title">
+                <h1>Registration Form</h1>
+            </div>
+            <div class="header__dsc">
+                <p>Please fill out this form with the required information</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <form action="" class="enter__form">
+                <div class="enter__form-info">
+                <label for="" class="enter__form-label">Enter Your First Name:</label>
+                <input type="text" class="enter__form-input" id="fname" name="fname">
+                <label for="" class="enter__form-label">Enter Your Last Name:</label>
+                <input type="text" class="enter__form-input" id="lname" name="lname">
+                <label for="" class="enter__form-label">Enter Your Email:</label>
+                <input type="password" class="enter__form-input" id="fname" name="fname">
+                <label for="" class="enter__form-label">Enter Your Password:</label>
+                <input type="email" class="enter__form-input" id="fname" name="fname">
+                </div>
+
+                <div class="enter__form-account">
+                    <p class="enter__form-title">Account type <span>(required)</span></p>
+                    <label for="personal-account">
+                        <input type="radio" name="account" id="personal" value="Personal" class="enter__form-account-input"> Personal
+                    </label>
+                    <label for="personal-account">
+                        <input type="radio" name="account" id="business" value="Business" class="enter__form-account-input"> Business
+                    </label>
+                </div>
+
+                <div class="enter__form-picture">
+                    
+                <label for="myfile" class="enter__form-label">Upload a profile picture:</label>
+                <input type="file" name="myfile" id="myfile" class="enter__form-picture-file">
+                <label for="quantity" class="enter__form-label">Input your age <span>(years):</span></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99" class="enter__form-input">
+                <label for="select" class="enter__form-label">How did you hear about us?</label>
+                <select id="channel" name="channel" class="enter__form-input">
+                    <option value="">(select one)</option>
+                    <option value="news">News</option>
+                    <option value="youtube">Youtube</option>
+                    <option value="forum">Forum</option>
+                    <option value="other">Other</option>
+                  </select>
+                <label for="bio" class="enter__form-label">Provide a bio:</label>
+                <textarea name="bio" id="bio" placeholder="Ex: I like coding everyday"></textarea>
+                </div>
+
+                <footer class="footer__form">
+                    <div class="footer__form-term">
+                        <label for="" class=footer__form-term-content>
+                            <input type="checkbox" name="check" id="check"> I accept the <a href="">terms and conditions</a>.
+                        </label>
+                    </div>
+                    <div class="footer__form-submit">
+                        <button class="footer__form--btn">Submit</button>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

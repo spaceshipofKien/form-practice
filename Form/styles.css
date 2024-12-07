@@ -1,0 +1,126 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    background-color: #25253b; 
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
+.header {
+    text-align: center;
+}
+
+.header__title h1 {
+    margin-top: 12px;
+    font-size: 3.6rem;
+}
+
+.header__dsc p {
+    margin-top: 12px;
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.enter__form {
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.enter__form-info {
+    margin-top: 30px;
+}
+
+.enter__form-label {
+    font-size: 1.4rem;
+}
+
+.enter__form-input {
+    display: block;
+    width: 100%;
+    margin: 4px 0;
+    padding: 4px 0px;
+    font-size: 1.2em;
+    background-color: #0d0d3a;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.enter__form-account,
+.enter__form-picture {
+    margin: 3em 0 2em 0;
+    border-top: 1px solid #fff;
+}
+
+.enter__form-title {
+    font-size: 1.4rem;
+    margin-bottom: 2em;
+}
+
+span {
+    font-style: italic;
+}
+
+.enter__form-account label {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+}
+
+.enter__form-account-input {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+
+.enter__form-picture-file {
+    display: block;
+    margin-top: 0.4em;
+}
+
+.enter__form-picture input {
+    display: block;
+    width: 100%;
+    margin: 0.4em 0;
+    padding: 4px 0px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 4em;
+    margin: 10px 0 0 0;
+    background-color: #0d0d3a;
+    border: 1px solid #0d0d3a;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.footer__form-term-content {
+    font-size: 1.8em;
+}
+
+.footer__form-term-content input {
+    margin-right: 0.6em;
+}
+
+.footer__form--btn {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.8rem;
+    background-color: #3b3b4f;
+    min-width: 300px;
+    color: #fff;
+    border: 1px solid #fff
+}
