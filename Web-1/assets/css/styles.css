@@ -22,34 +22,47 @@ html {
 
 /* Header */
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 46px;
     background-color: #000;
+    z-index: 100; /* header above everything */
 }
 
 .nav {
+    display: inline-block;
+}
+
+.nav, .subnav {
     list-style-type: none;
 }
 
+
 .nav li {
-    display: inline-block;
     position: relative;
 }
 
+.nav > li  {
+    display: inline-block;
+}
+
 .nav > li > a {
-    color: #fff;
     text-transform: uppercase;
+    color: #fff;
 }
 
 .nav li a {
     text-decoration: none;
-    padding: 0 24px;
-    line-height: 46px; /* align center text in header */
     font-size: 1.5rem;
+    padding: 0 24px;
+    line-height: 46px; /* line-height = height of header to text can be align center */
     display: block;
 }
 
-.nav > li:hover > a, /* chỉ ảnh hưởng ở cấp 1 */
-.subnav li:hover a /* hover cấp 2 */{ 
+.nav > li:hover > a,
+.subnav li:hover a {
     background-color: #ccc;
     color: #000;
 }
@@ -58,33 +71,66 @@ html {
     display: block;
 }
 
-
-
 .nav .subnav {
     display: none;
-    position: absolute; /* không làm ảnh hưởng tới thẻ cha */
+    position: absolute;
     background-color: #fff;
-    min-width: 160px;
-    top: 100%; /* ensure subnav always in the right place */
+    width: 160px;
+    top: 100%;
     left: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.nav .subnav li {
-    display: block;
-}
-
-.nav .subnav a {
-    line-height: 36px;
-    padding: 0 16px;
+.subnav li a {
     color: #000;
+    padding: 0 16px;
 }
 
+.header .search-btn {
+    float: right;
+    padding: 0 21px;
+}
 
+.header .search-btn:hover {
+    cursor: pointer;
+    background-color: #f44336;
+}
 
+.header .search-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 46px;
+}
 
 /* Slider */
 .slider {
+    position: relative;
+    margin-top: 46px; /* because position fixed its above slider so space of slider include header. I dont want that happens!*/
+    padding-top: 50%; /* resize no crashed img */
+    background: url('/Web-1/assets/img/ny.jpg') top center / cover no-repeat; /* add img */
+}
+
+.slider .slider__content {
+    position: absolute; /* let the text content inside img */
+    bottom: 47px; /* where content at */
+    color: #fff;
+    /* left: 50%; align center when using position Absolute c1 */
+    /* transform: translateX(-50%); align center when using position Absolute */
+    width: 100%;  /* c2: align center with position
+   /* right: 0; same as width 100%; 
+   left: 0; */
+    text-align: center;
+}
+
+.slider .slider__heading {
+    font-weight: 300;
+    font-size: 2.4rem;
+}
+
+.slider .slider__dsc {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 25px;
 }
 
 /* Content */
