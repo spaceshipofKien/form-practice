@@ -16,14 +16,18 @@ html {
     3. Overview to Details
 */
 
+.clear {
+    clear: both; /* to use with float */
+}
+
 .main {
 
 }
 
 /* Header */
 .header {
-    position: fixed;
-    top: 0;
+    position: fixed; /* always on top */
+    top: 0; /* header no where to go, always on top */
     left: 0;
     right: 0;
     height: 46px;
@@ -104,39 +108,217 @@ html {
 
 /* Slider */
 .slider {
-    position: relative;
-    margin-top: 46px; /* because position fixed its above slider so space of slider include header. I dont want that happens!*/
-    padding-top: 50%; /* resize no crashed img */
-    background: url('/Web-1/assets/img/ny.jpg') top center / cover no-repeat; /* add img */
+    position: relative; 
+    margin-top: 46px; /* let slider not affected header (if dont use, the slider and header will be the same frame ) */
+    padding-top: 50%; /* resize web img no crashed */
+    background: url('/Web-1/assets/img/ny.jpg') top center / cover no-repeat;
 }
 
 .slider .slider__content {
-    position: absolute; /* let the text content inside img */
-    bottom: 47px; /* where content at */
+    position: absolute; /* text separate from padding */
+    bottom: 47px;   /* set content inside background img from the bottom then go to top 46px */
     color: #fff;
-    /* left: 50%; align center when using position Absolute c1 */
-    /* transform: translateX(-50%); align center when using position Absolute */
-    width: 100%;  /* c2: align center with position
-   /* right: 0; same as width 100%; 
-   left: 0; */
+    width: 100%;    /* align content to center */
     text-align: center;
+     /* left: 50%; align center when using position Absolute c1 */
+    /* transform: translateX(-50%); align center when using position Absolute */
+     /* right: 0; same as width 100%; 
+    left: 0; */
+
 }
 
 .slider .slider__heading {
-    font-weight: 300;
     font-size: 2.4rem;
+    font-weight: 300;
 }
 
 .slider .slider__dsc {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 25px;
 }
+ 
 
 /* Content */
 .content {
+    
+}
+
+.content .content-section {
+    padding: 64px 16px;
+    width: 800px; /* width of content */
+    margin: 0 auto; /* align content to center */
+}
+
+.content .section-heading,
+.content .section-sub-heading {
+    text-align: center;
+}
+
+.content .section-heading {
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 10px 0;
+    letter-spacing: 4px;
+}
+
+.content .section-sub-heading {
+    font-size: 1.5rem;
+    font-style: italic;
+    padding: 15px 0;
+    opacity: 0.6;
+    font-weight: 300;
+}
+
+.content .section-about {
+    font-size: 1.5rem;
+    padding: 15px 0;
+    text-align: justify;
+    line-height: 1.4; /* for English, Vietnamese 1.6 */
+}
+
+.content .section-members {
+    padding: 32px 0;
+    /* overflow: hidden; c2: use with float */
+    
+}
+
+.content .member-profile {
+    float: left; /* let img in the same row from right to left */
+    /* width: 33.3333%; */
+    width: calc(100% / 3);
+    text-align: center;
+    
+}
+
+.content .member-name {
+    font-size: 1.5rem;
+    padding: 15px 0;
+}
+
+.content .member-img {
+    margin-bottom: 15px;
+    width: 154px;
+    border-radius: 4px;
+}
+
+/* .content .section-members {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content .member-profile {
+    padding: 32px 0;
+}
+
+.content .member-name {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.content .member-img {
+    width: 154px;
+    height: 154px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+} */
+
+.tour-section {
+    background-color: #000;
+    color: #fff;
+}
+
+.content .tour-lists {
+    background-color: #fff;
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.content .month-list {
+    padding: 8px 16px;
+    color: #757575;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.content .sold-out {
+    background-color: #f44336;
+    padding: 3px 8px;
+    margin-left: 16px;
+    color: #fff;
+}
+
+.content .quantity {
+    float: right;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    margin-top: -3px; /* using with Float we can use negative number */
+}
+
+/* Places */
+.places-list {
+    margin: 32px -8px 48px; /* to equal 2 side with same width content */
+}
+
+.place-item {
+    float: left;
+    width: calc(100% / 3);
+    padding: 0 8px;
+}
+
+.place-img {
+    width: 100%;
+    display: block;
+}
+
+.place-img:hover {
+    opacity: 0.6;
+}
+
+.place-body {
+    background-color: #fff;
+    color: #000;
+    padding: 16px;
+    font-size: 1.5rem;
+}
+
+.place-heading {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.place-time {
+   margin-top: 15px;
+   color: #757575;
 
 }
+
+.place-dsc {
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.place-buy-btn {
+    display: inline-block;
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin-top: 15px;
+}
+
+.place-buy-btn:hover {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+
 
 /* Footer */
 .footer {
