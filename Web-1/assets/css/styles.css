@@ -16,9 +16,59 @@ html {
     3. Overview to Details
 */
 
+/* Common */
 .clear {
     clear: both; /* to use with float */
 }
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+/* use this when use Float 
+Float make content box width = 0*/
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+/* column go from left and padding both side 8px */
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* column / 3 */
+.col-third {
+    width: 33.33333%;
+}
+
+/* column /2 */
+.col-half {
+    width: 50%;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Body */
 
 .main {
 
@@ -183,12 +233,13 @@ html {
     
 }
 
+
+/* using class common */
 .content .member-profile {
-    float: left; /* let img in the same row from right to left */
+    /* float: left; let img in the same row from right to left */
     /* width: 33.3333%; */
-    width: calc(100% / 3);
-    text-align: center;
-    
+    /* width: calc(100% / 3);
+    text-align: center; */
 }
 
 .content .member-name {
@@ -223,7 +274,6 @@ html {
     border-radius: 5px;
     margin-bottom: 16px;
 } */
-
 .tour-section {
     background-color: #000;
     color: #fff;
@@ -263,15 +313,17 @@ html {
 
 /* Places */
 .places-list {
-    margin: 32px -8px 48px; /* to equal 2 side with same width content */
+    /* margin: 32px -8px 48px; to equal 2 side with same width content */
+    margin-top: 32px;
+    margin-bottom: 48px;
 }
 
 /* all Item are in the same row also same width  */
-.place-item { 
+/* .place-item { 
     float: left;
-    width: calc(100% / 3);
-    padding: 0 8px;
-}
+    width: 33.3333%
+    padding: 0 8px
+} */
 
 /* real img size */
 .place-img {
@@ -321,7 +373,38 @@ html {
     cursor: pointer;
 }
 
+.content .contact-content {
+    padding: 32px 0;
+}
 
+.contact-info {
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+.contact-info i {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form {
+    font-size: 1.5rem;    
+}
+
+.contact-form .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.contact-form .form-btn {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 4px 16px;
+    float: right;
+    cursor: pointer;
+}
 /* Footer */
 .footer {
 
