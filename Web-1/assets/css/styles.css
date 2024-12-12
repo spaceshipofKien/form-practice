@@ -266,12 +266,14 @@ html {
     margin: 32px -8px 48px; /* to equal 2 side with same width content */
 }
 
-.place-item {
+/* all Item are in the same row also same width  */
+.place-item { 
     float: left;
     width: calc(100% / 3);
     padding: 0 8px;
 }
 
+/* real img size */
 .place-img {
     width: 100%;
     display: block;
