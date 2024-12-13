@@ -197,7 +197,7 @@ Float make content box width = 0*/
 .content .content-section {
     padding: 64px 16px;
     width: 800px; /* width of content */
-    margin: 0 auto; /* align content to center */
+    margin: 0 auto; /* content set to center */
 }
 
 .content .section-heading,
