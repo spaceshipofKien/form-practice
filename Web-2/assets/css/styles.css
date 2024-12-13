@@ -83,6 +83,10 @@ html {
     color: #fff;
 }
 
+.line {
+    border: 1px solid #e8e4e4;
+}
+
 /* About */
 .body-about {
     padding: 32px 16px;
@@ -118,6 +122,69 @@ html {
     font-size: 1.5rem;
     font-weight: 200;
 }
+
+/* Footer */
+.footer_sign h3,
+.footer_blog h3,
+.footer_popular h3 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+.footer_sign p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.footer_sign a {
+    color: #000;
+}
+
+.footer_blog ul {
+    list-style-type: none;
+}
+
+.footer_blog ul li {
+    padding: 16px;
+}
+
+.footer_blog ul li:first-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.footer_blog ul li:hover {
+    background-color: #ccc;
+}
+
+.footer_blog img {
+    width: 50px;
+    margin-right: 16px;
+    float: left;
+}
+
+.footer_blog span {
+    text-align: left;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 300;
+    
+}
+
+.populer__tags {
+    margin: 15px 0;
+}
+
+.footer_popular span {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 8px;
+    background-color: rgb(97, 97, 97);
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+
 
 
 
