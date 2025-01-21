@@ -1,81 +1,123 @@
-// HTML variables
-const listOfAllDice = document.querySelectorAll('.die');
-const scoreInputs = document.querySelectorAll('#score-options input');
-const scoreSpans = document.querySelectorAll('#score-options span');
-const roundElement = document.getElementById('current-round');
-const rollsElement = document.getElementById('current-round-rolls');
-const totalScoreElement = document.getElementById('total-score');
-const scoreHistoryElement = document.getElementById('score-history');
-const rollDiceBtn = document.getElementById('roll-dice-btn');
-const keepScoreBtn = document.getElementById('keep-score-btn');
-const rulesBtn = document.getElementById('rules-btn');
-const rulesContainer = document.querySelector('.rules-container');
+const listOfAllDice = document.querySelectorAll(".die");
+const scoreInputs = document.querySelectorAll("#score-options input");
+const scoreSpans = document.querySelectorAll("#score-options span");
+const roundElement = document.getElementById("current-round");
+const rollsElement = document.getElementById("current-round-rolls");
+const totalScoreElement = document.getElementById("total-score");
+const scoreHistory = document.getElementById("score-history");
+const rollDiceBtn = document.getElementById("roll-dice-btn");
+const keepScoreBtn = document.getElementById("keep-score-btn");
+const rulesContainer = document.querySelector(".rules-container");
+const rulesBtn = document.getElementById("rules-btn");
 
-// State variables
-let isModalShowing = false;
 let diceValuesArr = [];
-let rolls = 0;
+let isModalShowing = false;
 let score = 0;
-let round = 1;
-let totalScore = 0;
+let round = 1; 
+let rolls = 0; 
 
-// Toggle rules display
-rulesBtn.addEventListener('click', () => {
-  isModalShowing = !isModalShowing;
-  rulesContainer.style.display = isModalShowing ? 'block' : 'none';
-});
-
-// Function to roll dice
 const rollDice = () => {
-  diceValuesArr = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6) + 1);
-  rolls++;
-  updateDiceDisplay();
-  updateRollsElement();
-};
+  diceValuesArr = [];
 
-// Function to update dice display
-const updateDiceDisplay = () => {
-  listOfAllDice.forEach((die, index) => {
-    die.textContent = diceValuesArr[index];
+  for (let i = 0; i < 5; i++) {
+    const randomDice = Math.floor(Math.random() * 6) + 1;
+    diceValuesArr.push(randomDice);
+  };
+
+  listOfAllDice.forEach((dice, index) => {
+    dice.textContent = diceValuesArr[index];
   });
 };
 
-// Function to update rolls element
-const updateRollsElement = () => {
-  rollsElement.textContent = `Rolls: ${rolls}`;
+const updateStats = () => {
+  rollsElement.textContent = rolls;
+  roundElement.textContent = round;
 };
 
-// Function to keep score
-const keepScore = () => {
-  score = diceValuesArr.reduce((acc, val) => acc + val, 0);
-  totalScore += score;
-  updateScoreDisplay();
-  saveScoreHistory();
-  resetRound();
+const updateRadioOption = (index, score) => {
+  scoreInputs[index].disabled = false;
+  scoreInputs[index].value = score;
+  scoreSpans[index].textContent = `, score = ${score}`;
 };
 
-// Function to update score display
-const updateScoreDisplay = () => {
-  totalScoreElement.textContent = `Total Score: ${totalScore}`;
+const updateScore = (selectedValue, achieved) => {
+  score += parseInt(selectedValue);
+  totalScoreElement.textContent = score;
+
+  scoreHistory.innerHTML += `<li>${achieved} : ${selectedValue}</li>`;
 };
 
-// Function to save score history
-const saveScoreHistory = () => {
-  const scoreEntry = document.createElement('li');
-  scoreEntry.textContent = `Round ${round}: ${score}`;
-  scoreHistoryElement.appendChild(scoreEntry);
+const getHighestDuplicates = (arr) => {
+  const counts = {};
+
+  for (const num of arr) {
+    if (counts[num]) {
+      counts[num]++;
+    } else {
+      counts[num] = 1;
+    }
+  }
+
+  let highestCount = 0;
+
+  for (const num of arr) {
+    const count = counts[num];
+    if (count >= 3 && count > highestCount) {
+      highestCount = count;
+    }
+    if (count >= 4 && count > highestCount) {
+      highestCount = count;
+    }
+  }
+
+  const sumOfAllDice = arr.reduce((a, b) => a + b, 0);
+
+  if (highestCount >= 4) {
+    updateRadioOption(1, sumOfAllDice);
+  }
+
+  if (highestCount >= 3) {
+    updateRadioOption(0, sumOfAllDice);
+  }
+
+  updateRadioOption(5, 0);
 };
 
-// Function to reset round
-const resetRound = () => {
-  diceValuesArr = [];
-  rolls = 0;
-  score = 0;
-  round++;
-  updateRollsElement();
-  roundElement.textContent = `Round: ${round}`;
+const resetRadioOptions = () => {
+  scoreInputs.forEach((input) => {
+    input.disabled = true;
+    input.checked = false;
+  });
+
+  scoreSpans.forEach((span) => {
+    span.textContent = "";
+  });
 };
 
-// Event listeners for buttons
-rollDiceBtn.addEventListener('click', rollDice);
-keepScoreBtn.addEventListener('click', keepScore);
+rollDiceBtn.addEventListener("click", () => {
+  if (rolls === 3) {
+    alert("You have made three rolls this round. Please select a score.");
+  } else {
+    rolls++;
+    resetRadioOptions();
+    rollDice();
+    updateStats();
+    getHighestDuplicates(diceValuesArr);
+  }
+});
+
+rulesBtn.addEventListener("click", () => {
+  isModalShowing = !isModalShowing;
+
+  if (isModalShowing) {
+    rulesBtn.textContent = "Hide rules";
+    rulesContainer.style.display = "block";
+  } else {
+    rulesBtn.textContent = "Show rules";
+    rulesContainer.style.display = "none";
+  }
+});
+
+keepScoreBtn.addEventListener("click", () => {
+  
+});
